@@ -13,18 +13,14 @@
 , "licenses" : [ { "type" : "MIT" } ]
 , "repositories" :
   [ { "type" : "git"
-    , "url" : "https://github.com/mariano/node-db-mysql.git"
+    , "url" : "https://github.com/lessmind/node-db-mysql.git"
     }
   ]
 , "main" : "./db-mysql"
 , "scripts" :
-  { "install": "node-waf configure build"
-  , "preuninstall": "rm -rf build/*"
-  , "test" : "node-waf test"
-  , "doc" : "node-waf doc"
-  }
-, "devDependencies" :
-  { "nodeunit" : "*"
-  , "nodelint" : "*"
+  {
+    "install": "node-gyp rebuild --release",
+    "preinstall": "git pull --recurse-submodules && git submodule update --init --recursive",
+    "preuninstall": "rm -rf build/*"
   }
 }
