@@ -20,7 +20,6 @@
 , "scripts" :
   {
     "install": "node-gyp rebuild --release",
-    "preinstall": "git pull --recurse-submodules && git submodule update --init --recursive",
-    "preuninstall": "rm -rf build/*"
+    "preinstall": "git clone https://github.com/lessmind/node-db.git lib/node-db"
   }
 }
